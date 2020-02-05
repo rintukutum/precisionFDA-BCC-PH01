@@ -1,0 +1,134 @@
+$Accuracy
+    linear.Accuracy sigmoid.Accuracy radial.Accuracy
+CV1       0.8688525        0.8524590       0.8852459
+CV2       0.8666667        0.8666667       0.9000000
+CV3       0.8666667        0.8666667       0.8666667
+CV4       0.8688525        0.8688525       0.8524590
+CV5       0.8666667        0.8166667       0.8833333
+
+$ConfusionMatrix
+$ConfusionMatrix$CV1
+$ConfusionMatrix$CV1$linear
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 53
+
+$ConfusionMatrix$CV1$sigmoid
+          Reference
+Prediction  0  1
+         0  0  1
+         1  8 52
+
+$ConfusionMatrix$CV1$radial
+          Reference
+Prediction  0  1
+         0  1  0
+         1  7 53
+
+
+$ConfusionMatrix$CV2
+$ConfusionMatrix$CV2$linear
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 52
+
+$ConfusionMatrix$CV2$sigmoid
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 52
+
+$ConfusionMatrix$CV2$radial
+          Reference
+Prediction  0  1
+         0  2  0
+         1  6 52
+
+
+$ConfusionMatrix$CV3
+$ConfusionMatrix$CV3$linear
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 52
+
+$ConfusionMatrix$CV3$sigmoid
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 52
+
+$ConfusionMatrix$CV3$radial
+          Reference
+Prediction  0  1
+         0  1  1
+         1  7 51
+
+
+$ConfusionMatrix$CV4
+$ConfusionMatrix$CV4$linear
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 53
+
+$ConfusionMatrix$CV4$sigmoid
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 53
+
+$ConfusionMatrix$CV4$radial
+          Reference
+Prediction  0  1
+         0  0  1
+         1  8 52
+
+
+$ConfusionMatrix$CV5
+$ConfusionMatrix$CV5$linear
+          Reference
+Prediction  0  1
+         0  0  0
+         1  8 52
+
+$ConfusionMatrix$CV5$sigmoid
+          Reference
+Prediction  0  1
+         0  0  3
+         1  8 49
+
+$ConfusionMatrix$CV5$radial
+          Reference
+Prediction  0  1
+         0  1  0
+         1  7 52
+
+
+
+$Sensitivity
+    linear.Sensitivity sigmoid.Sensitivity radial.Sensitivity
+CV1                  0                   0              0.125
+CV2                  0                   0              0.250
+CV3                  0                   0              0.125
+CV4                  0                   0              0.000
+CV5                  0                   0              0.125
+
+$Specificity
+    linear.Specificity sigmoid.Specificity radial.Specificity
+CV1                  1           0.9811321          1.0000000
+CV2                  1           1.0000000          1.0000000
+CV3                  1           1.0000000          0.9807692
+CV4                  1           1.0000000          0.9811321
+CV5                  1           0.9423077          1.0000000
+
+$AUC
+       linear   sigmoid    radial
+CV1 0.4952830 0.3301887 0.2311321
+CV2 0.3125000 0.4783654 0.2836538
+CV3 0.4711538 0.2283654 0.2692308
+CV4 0.3325472 0.2806604 0.2995283
+CV5 0.4639423 0.4254808 0.2884615
+

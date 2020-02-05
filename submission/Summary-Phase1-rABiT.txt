@@ -1,0 +1,419 @@
+﻿Phase 1 model summary
+This document is meant to be a summary of the models used on the Phase 1 data.
+Provide the following details for EACH sub-challenge within “Summary-Phase1.txt”
+------------------------------
+Summary-Phase1-Sub-challenge-1
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.) 
+	Input data was randomly sampled into traing (80%) and test (20%) set. We have performed 5-fold-crossvalidation.
+	We have built models using SVM (linear, radial and sigmoid) with features as genes. Before modelling, we 
+	have performed feature reduction using univariate analysis based on the underlying distribution 
+	(Wilcox test or t-test ) of a feature. Based on varying p-value thresholds, we build SVM models. For this 
+	sub-challenge the threshold was p-value <= 1e-05.
+b) Short listed features selected by the model
+	GMPR2, CASTOR1, KLHDC2, MTHFD2, SF3A1, STK32B, PLAT, UBR5, CNBP
+c) Link to complete code in a public GitHub repository 
+	REPO: https://github.com/rintukutum/precisionFDA-BCC-PH01/
+	CODE: https://github.com/rintukutum/precisionFDA-BCC-PH01/blob/master/01-PH01-SC1-FINAL.R
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives 
+	#--------------------
+	# TRAINING
+	CV1: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 53
+
+	CV1: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  1
+			 1  8 52
+
+	CV1: radial
+			  Reference
+	Prediction  0  1
+			 0  1  0
+			 1  7 53
+	#--------------------
+	CV2: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 52
+
+	CV2: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 52
+
+	CV2: radial
+			  Reference
+	Prediction  0  1
+			 0  2  0
+			 1  6 52
+	#--------------------
+	CV3: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 52
+
+	CV3: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 52
+
+	CV3: radial
+			  Reference
+	Prediction  0  1
+			 0  1  1
+			 1  7 51
+	#--------------------
+	CV4: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 53
+
+	CV4: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 53
+
+	CV4 radial
+			  Reference
+	Prediction  0  1
+			 0  0  1
+			 1  8 52
+	#--------------------
+	CV5: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 52
+
+	CV5: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  3
+			 1  8 49
+
+	CV5: radial
+			  Reference
+	Prediction  0  1
+			 0  1  0
+			 1  7 52
+e) Overall accuracy 
+	#--------------------
+	# TRAINING
+			  linear 		   sigmoid		   radial
+	CV1       0.8688525        0.8524590       0.8852459
+	CV2       0.8666667        0.8666667       0.9000000
+	CV3       0.8666667        0.8666667       0.8666667
+	CV4       0.8688525        0.8688525       0.8524590
+	CV5       0.8666667        0.8166667       0.8833333
+f) Specificity
+	#--------------------
+	# TRAINING
+		linear		 sigmoid			radial
+	CV1	1           0.9811321          1.0000000
+	CV2	1           1.0000000          1.0000000
+	CV3	1           1.0000000          0.9807692
+	CV4	1           1.0000000          0.9811321
+	CV5	1           0.9423077          1.0000000
+g) Sensitivity 
+	#--------------------
+	# TRAINING
+		linear		  sigmoid 		      radial
+	CV1	0                   0              0.125
+	CV2	0                   0              0.250
+	CV3	0                   0              0.125
+	CV4	0                   0              0.000
+	CV5	0                   0              0.125
+
+h) Area under the curve (AUC)
+	#--------------------
+	# TRAINING
+		   linear   sigmoid    radial
+	CV1 0.4952830 0.3301887 0.2311321
+	CV2 0.3125000 0.4783654 0.2836538
+	CV3 0.4711538 0.2283654 0.2692308
+	CV4 0.3325472 0.2806604 0.2995283
+	CV5 0.4639423 0.4254808 0.2884615
+------------------------------
+Summary-Phase1-Sub-challenge-2
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.) 
+	Input data was randomly sampled into traing (80%) and test (20%) set. We have performed 5-fold-crossvalidation.
+	We have built models using SVM (linear, radial and sigmoid) with features as genes. Before modelling, we 
+	have performed feature reduction using univariate analysis based on the underlying distribution 
+	(Wilcox test or t-test ) of a feature. Based on varying p-value thresholds, we build SVM models. For this 
+	sub-challenge the threshold was p-value <= 1e-02.
+b) Short listed features selected by the model
+	9p24.1, 1p32.2, 9p22.3, 7p11.2
+c) Link to complete code in a public GitHub repository
+	REPO: https://github.com/rintukutum/precisionFDA-BCC-PH01/ 
+	CODE: https://github.com/rintukutum/precisionFDA-BCC-PH01/blob/master/02-PH01-SC2-FINAL.R
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives 
+	#---------------------
+	CV1: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 21
+
+	CV1: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  1
+			 1  7 20
+
+	CV1: radial
+			  Reference
+	Prediction  0  1
+			 0  1  0
+			 1  6 21
+
+	#---------------------
+	CV2: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 21
+
+	CV2: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 21
+
+	CV2: radial
+			  Reference
+	Prediction  0  1
+			 0  0  1
+			 1  7 20
+
+	#---------------------
+	CV3: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 21
+
+	CV3: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  2
+			 1  7 19
+
+	CV3: radial
+			  Reference
+	Prediction  0  1
+			 0  3  2
+			 1  4 19
+			 
+	#---------------------
+	CV4: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  8 21
+
+	CV4: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  1  1
+			 1  7 20
+
+	CV4: radial
+			  Reference
+	Prediction  0  1
+			 0  1  1
+			 1  7 20
+	#---------------------
+	CV5: linear
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 20
+
+	CV5: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  0  0
+			 1  7 20
+
+	CV5: radial
+			  Reference
+	Prediction  0  1
+			 0  2  1
+			 1  5 19
+e) Overall accuracy 
+			  linear		   sigmoid		   radial
+	CV1       0.7500000        0.7142857       0.7857143
+	CV2       0.7500000        0.7500000       0.7142857
+	CV3       0.7500000        0.6785714       0.7857143
+	CV4       0.7241379        0.7241379       0.7241379
+	CV5       0.7407407        0.7407407       0.7777778
+f) Specificity
+					linear 			 sigmoid			radial
+	CV1                  1           0.9523810          1.0000000
+	CV2                  1           1.0000000          0.9523810
+	CV3                  1           0.9047619          0.9047619
+	CV4                  1           0.9523810          0.9523810
+	CV5                  1           1.0000000          0.9500000
+
+g) Sensitivity 
+					linear 			     sigmoid		radial
+	CV1                  0               0.000          0.1428571
+	CV2                  0               0.000          0.0000000
+	CV3                  0               0.000          0.4285714
+	CV4                  0               0.125          0.1250000
+	CV5                  0               0.000          0.2857143
+h) Area under the curve (AUC)
+		linear    sigmoid   radial
+	CV1 0.4455782 0.3639456 0.3435374
+	CV2 0.4489796 0.4421769 0.4829932
+	CV3 0.4829932 0.4081633 0.3129252
+	CV4 0.2916667 0.3452381 0.4404762
+	CV5 0.6285714 0.3571429 0.3785714
+------------------------------
+Summary-Phase1-Sub-challenge-3
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.) 
+	Input data was randomly sampled into traing (80%) and test (20%) set. We have performed 5-fold-crossvalidation.
+	We have built models using SVM (linear, radial and sigmoid) with features as genes. Before modelling, we 
+	have performed feature reduction using univariate analysis based on the underlying distribution 
+	(Wilcox test or t-test ) of a feature. Based on varying p-value thresholds, we build SVM models. For this 
+	sub-challenge the threshold was p-value <= 1e-06.
+b) Short listed features selected by the model
+	ULBP2, CNBP, RPL30
+c) Link to complete code in a public GitHub repository
+	REPO: https://github.com/rintukutum/precisionFDA-BCC-PH01/
+	CODE: https://github.com/rintukutum/precisionFDA-BCC-PH01/blob/master/03-PH01-SC3-FINAL.R
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives 
+	#-------------------
+	CV1: linear
+			  Reference
+	Prediction  0  1
+			 0  4  1
+			 1  2 20
+
+	CV1: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  1  5
+			 1  5 16
+
+	CV1: radial
+			  Reference
+	Prediction  0  1
+			 0  4  0
+			 1  2 21
+
+	#-------------------
+	CV2: linear
+			  Reference
+	Prediction  0  1
+			 0  3  1
+			 1  3 19
+
+	CV2: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  4  3
+			 1  2 17
+
+	CV2: radial
+			  Reference
+	Prediction  0  1
+			 0  1  1
+			 1  5 19
+
+	#-------------------
+	CV3: linear
+			  Reference
+	Prediction  0  1
+			 0  3  1
+			 1  3 19
+
+	CV3: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  4  2
+			 1  2 18
+
+	CV3: radial
+			  Reference
+	Prediction  0  1
+			 0  2  0
+			 1  4 20
+	#-------------------
+	CV4: linear
+			  Reference
+	Prediction  0  1
+			 0  3  1
+			 1  4 19
+
+	CV4: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  3  0
+			 1  4 20
+
+	CV4: radial
+			  Reference
+	Prediction  0  1
+			 0  2  1
+			 1  5 19
+	#-------------------
+	CV5: linear
+			  Reference
+	Prediction  0  1
+			 0  1  2
+			 1  5 19
+
+	CV5: sigmoid
+			  Reference
+	Prediction  0  1
+			 0  1  4
+			 1  5 17
+
+	CV5: radial
+			  Reference
+	Prediction  0  1
+			 0  1  2
+			 1  5 19
+
+e) Overall accuracy 
+			  linear 		   sigmoid		   radial
+	CV1       0.8888889        0.6296296       0.9259259
+	CV2       0.8461538        0.8076923       0.7692308
+	CV3       0.8461538        0.8461538       0.8461538
+	CV4       0.8148148        0.8518519       0.7777778
+	CV5       0.7407407        0.6666667       0.7407407
+f) Specificity
+				 linear				 sigmoid			radial
+	CV1          0.9523810           0.7619048          1.0000000
+	CV2          0.9500000           0.8500000          0.9500000
+	CV3          0.9500000           0.9000000          1.0000000
+	CV4          0.9500000           1.0000000          0.9500000
+	CV5          0.9047619           0.8095238          0.9047619
+g) Sensitivity 
+				 linear				 sigmoid			radial
+	CV1          0.6666667           0.1666667          0.6666667
+	CV2          0.5000000           0.6666667          0.1666667
+	CV3          0.5000000           0.6666667          0.3333333
+	CV4          0.4285714           0.4285714          0.2857143
+	CV5          0.1666667           0.1666667          0.1666667
+h) Area under the curve (AUC)
+		   linear   sigmoid    radial
+	CV1 0.1269841 0.3492063 0.1666667
+	CV2 0.8500000 0.8000000 0.7833333
+	CV3 0.9666667 0.9000000 0.9250000
+	CV4 0.9214286 0.9142857 0.7785714
+	CV5 0.6507937 0.6190476 0.3333333
