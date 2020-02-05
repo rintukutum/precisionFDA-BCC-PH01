@@ -91,7 +91,6 @@ for(i in 1:length(p.cutoffs)){
 rm(list=ls())
 load('./data/PH01-SC1-feature-pvals.RData')
 load('./data/PH01-SC1-model-data.RData')
-source('func-room.R')
 sc1.features <- sc1.feature.pvals[sc1.feature.pvals <= 1.0e-05]
 #---------------
 model.feature <- names(sc1.features)
@@ -101,12 +100,26 @@ tr.x <- sc1.train$x[,model.feature]
 tr.y <- as.factor(sc1.train$y)
 tt.x <- sc1.test$x[,model.feature]
 tt.y <- as.factor(sc1.test$y)
-
-ph01.sc1.SVM.mods <- performSVM(
+sc1.mod.data <- list(
   tr.x = tr.x,
   tr.y = tr.y,
   tt.x = tt.x,
-  tt.y = tt.y,
+  tt.y = tt.y
+)
+dir.create('./data/MODEL-DATA-PH01',showWarnings = FALSE)
+save(sc1.mod.data,
+     file = './data/MODEL-DATA-PH01/sc1.mod.data.RData')
+#-------------------------------------------------------
+#-------------------------------------------------------
+rm(list=ls())
+load('./data/MODEL-DATA-PH01/sc1.mod.data.RData')
+source('func-room.R')
+
+ph01.sc1.SVM.mods <- performSVM(
+  tr.x = sc1.mod.data$tr.x,
+  tr.y = sc1.mod.data$tr.y,
+  tt.x = sc1.mod.data$tt.x,
+  tt.y = sc1.mod.data$tt.y,
   SEED = 768
 )
 perf.PH01.SC1 <- getPerfMetrics(x = ph01.sc1.SVM.mods)
