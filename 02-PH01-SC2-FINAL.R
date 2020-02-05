@@ -83,3 +83,33 @@ for(i in 1:length(p.cutoffs)){
     p.test + ggtitle(paste('Test | pval <= ',p.cutoff)))
   dev.off()
 }
+#-----------------------
+# FINAL MODEL
+rm(list=ls())
+load('./data/PH01-SC2-feature-pvals.RData')
+load('./data/PH01-SC2-model-data.RData')
+source('func-room.R')
+sc2.features <- sc2.feature.pvals[sc2.feature.pvals <= 1.0e-02]
+#---------------
+model.feature <- names(sc2.features)
+message('Features used!')
+message(paste(gsub('X','',model.feature),collapse = ', '))
+tr.x <- sc2.train$x[,model.feature]
+tr.y <- as.factor(sc2.train$y)
+tt.x <- sc2.test$x[,model.feature]
+tt.y <- as.factor(sc2.test$y)
+
+ph01.sc2.SVM.mods <- performSVM(
+  tr.x = tr.x,
+  tr.y = tr.y,
+  tt.x = tt.x,
+  tt.y = tt.y,
+  SEED = 768
+)
+perf.PH01.SC2 <- getPerfMetrics(x = ph01.sc2.SVM.mods)
+sink('./submission/Summary-Phase1-SC2-TRAIN.txt')
+print(perf.PH01.SC2$tr)
+sink()
+outname <- './data/MODEL-PERF-FINAL-PH01/perf.PH01.SC2.FINAL.RData'
+save(perf.PH01.SC2,
+     file = outname)
